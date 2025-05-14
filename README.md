@@ -35,8 +35,11 @@ python train_model.py --epochs 50 --batch_size 8
 ```
 
 ### 🔎 Evaluate on Test Set
+
+Following is an example to test our model. If you want to test for other images, just change image_path:
+
 ```bash
-python main.py --mode test --weights check_point/best_model_f.pt
+python main.py --weights check_point/best_model_f.pt --image_path image_test/airplane.jpg
 ```
 
 ---
