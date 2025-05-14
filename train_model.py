@@ -11,6 +11,7 @@ import os
 from Dataset import MyCifarDataset
 from model import MyResnet
 from Plt_cm import plot_confusion_matrix
+from torchvision.datasets import CIFAR10
 def get_args():
     parser = ArgumentParser(description="Hihi")
     parser.add_argument("--epochs", type=int)
@@ -46,8 +47,11 @@ if __name__=="__main__":
 
     test_transform = Resize(32)
 
-    train_data = MyCifarDataset(root="", transform=train_transform)
-    test_data = MyCifarDataset(root='', transform=test_transform)
+    if not os.path.exists("./data/cifar-10-batches-py"):
+        CIFAR10(root="./data", train=True, download=True)
+
+    train_data = MyCifarDataset(root="./data/cifar-10-batches-py", train=True ,transform=train_transform)
+    test_data = MyCifarDataset(root='./data/cifar-10-batches-py', train=False, transform=test_transform)
 
     train_dataloader = DataLoader(
         dataset=train_data,
