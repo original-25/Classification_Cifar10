@@ -36,7 +36,7 @@ python train_model.py --epochs 50 --batch_size 8
 
 ### 🔎 Evaluate on Test Set
 ```bash
-python main.py --mode test --weights path/to/model.pth
+python main.py --mode test --weights check_point/best_model_f.pt
 ```
 
 ---
